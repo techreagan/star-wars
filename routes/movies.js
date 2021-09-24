@@ -1,24 +1,10 @@
 const express = require('express')
-const {
-	getMovies,
-	// getComment,
-	// getCommentsCount,
-	// createComment,
-	// updateComment,
-	// deleteComment,
-} = require('../controllers/movies')
-
-const advancedResults = require('../middleware/advancedResults')
-const Comment = require('../models/Comment')
+const { getMovies, getMovie } = require('../controllers/movies')
 
 const router = express.Router()
 
-// router.route('/').get(advancedResults(Comment), getComments).post(createComment)
-
-// router.route('/count').get(getCommentsCount)
-
-// router.route('/:id').get(getComment).put(updateComment).delete(deleteComment)
-
 router.route('/').get(getMovies)
+
+router.route('/:id').get(getMovie)
 
 module.exports = router
