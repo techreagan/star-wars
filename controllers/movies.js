@@ -34,9 +34,6 @@ exports.getMovies = asyncHandler(async (req, res, next) => {
 exports.getMovie = asyncHandler(async (req, res, next) => {
 	let movie = await MovieService.getMovie(req.params.id)
 
-	if (!movie.data)
-		return next(new ErrorResponse(`No movie with that id of ${req.params.id}`))
-
 	const [[{ total }]] = await Comment.countsByMovies(movie.data.episode_id)
 
 	let data = {
