@@ -2,6 +2,10 @@
 
 Task to build star wars API
 
+## API Documentation
+
+API documentation with examples response: [API](https://documenter.getpostman.com/view/9407876/UUxxg8A7)
+
 ## API Features
 
 - Authentication with JWT (Reset Password with email)
@@ -37,18 +41,6 @@ Install nodemon globally
 
 ```console
 npm install -g nodemon
-```
-
-Run database seeder
-
-```console
-node seeder -i
-```
-
-Delete all data
-
-```console
-node seeder -d
 ```
 
 ## Run Server
