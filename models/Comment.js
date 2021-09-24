@@ -11,7 +11,7 @@ module.exports = class Comment {
 	save() {
 		if (this.id) {
 			return db.execute(
-				'UPDATE comments SET text = ?, movie_id = ?, ip_address = ? updated_at = UTC_TIMESTAMP(), WHERE id = ?',
+				'UPDATE comments SET text = ?, movie_id = ?, ip_address = ?, updated_at = UTC_TIMESTAMP() WHERE id = ?',
 				[this.text, this.movie_id, this.ip_address, this.id]
 			)
 		} else {
