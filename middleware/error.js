@@ -11,9 +11,14 @@ const errorHandler = (err, req, res, next) => {
 	console.log(err)
 
 	// Not Found
-	if (err.response.data.detail === 'Not found') {
+	if (err.response && err.response.data.detail === 'Not found') {
 		// const message = `Resource (${err.response.config.url}) not found`
-		const message = `Resource not found`
+		const resource = err.response.config.url.split('/')
+
+		const message = `No ${
+			resource[1] == 'films' ? 'movie' : resource[1]
+		} with that id of ${resource[2]}`
+
 		error = new ErrorResponse(message, 404)
 	}
 
