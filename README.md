@@ -1,58 +1,74 @@
-# NodeJS / ExpressJS MongoDB(Mongoose) Boilerplate
+# Star Wars API
 
-This is my boilerplate for RESTful API with NodeJS and MongoDB.
+Task to build star wars API
 
-## Boilerplate Features
-* Authentication with JWT (Reset Password with email)
-* User Create, Read, Update and Delete (CRUD) operations
-* API Security (NoSQL Injections, XSS Attacks, http param pollution etc)
+## API Features
+
+- Authentication with JWT (Reset Password with email)
+- User Create, Read, Update and Delete (CRUD) operations
+- API Security (NoSQL Injections, XSS Attacks, http param pollution etc)
 
 ## Configuration File
 
-Modify the config/.env file to your environment variables, set your JWT_SECRET and SMTP variables
+Modify the config/.env file to your environment variables
 
-``` ENV
+```ENV
 NODE_ENV=development
-PORT=3001
+PORT=3000
 
-MONGO_URI=YOUR_URL
+STARWARS_API=https://swapi.dev/api
 
-JWT_SECRET=YOUR_SECRET
-JWT_EXPIRE=30d
-JWT_COOKIE_EXPIRE=30
-
-SMTP_HOST=smtp.mailtrap.io
-SMTP_PORT=2525
-SMTP_EMAIL=
-SMTP_PASSWORD=
-FROM_EMAIL=noreply@boilerplate.com
-FROM_NAME=Boilerplate
+MYSQL_HOST=mysql_server
+MYSQL_USER=reagan
+MYSQL_PASSWORD=secretpassword
+MYSQL_DATABASE=starwars
+MYSQL_ROOT_PASSWORD=secretpassword
 ```
 
 ## Installation
+
 Install all npm dependecies
-``` console
+
+```console
 npm install
 ```
 
 Install nodemon globally
-``` console
+
+```console
 npm install -g nodemon
 ```
 
 Run database seeder
-``` console
+
+```console
 node seeder -i
 ```
 
 Delete all data
-``` console
+
+```console
 node seeder -d
 ```
 
-## Run Boilerplate
-``` console
+## Run Server
+
+```console
 node run dev
+```
+
+## Using Docker
+
+### Start Docker
+
+```console
+docker-compose up -d
+```
+
+### Stop Docker
+
+```console
+docker-compose down
 ```
 
 ## License
