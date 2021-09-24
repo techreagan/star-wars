@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  mysql_server:
+    image: mysql:8.0
+    environment:
+      - MYSQL_DATABASE=starwars
+      - MYSQL_USER=reagan
+      - MYSQL_PASSWORD=secretpassword
+      - MYSQL_ROOT_PASSWORD=secretpassword
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/app
+      - '/app/node_modules'
+    # environment:
+    env_file:
+      - ./config/.env
+
+    depends_on:
+      - mysql_server
