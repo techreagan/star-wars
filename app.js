@@ -12,12 +12,11 @@ const errorHandler = require('./middleware/error')
 
 dotenv.config({ path: './config/.env' })
 
-const DBConnection = require('./config/db')
+require('./config/db')
 
-// const authRoutes = require('./routes/auth')
-// const userRoutes = require('./routes/users')
 const commentRoutes = require('./routes/comments')
 const moviesRoutes = require('./routes/movies')
+const charactersRoutes = require('./routes/characters')
 
 const app = express()
 
@@ -49,10 +48,9 @@ app.use(hpp())
 
 const versionOne = (routeName) => `/api/v1/${routeName}`
 
-// app.use(versionOne('auth'), authRoutes)
-// app.use(versionOne('users'), userRoutes)
 app.use(versionOne('comments'), commentRoutes)
 app.use(versionOne('movies'), moviesRoutes)
+app.use(versionOne('characters'), charactersRoutes)
 
 app.use(errorHandler)
 
